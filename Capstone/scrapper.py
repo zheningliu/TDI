@@ -100,13 +100,3 @@ def parse_links(news_list):
 def parse_headlines(news_list):
 	headline_list = [news[1] for news in news_list]
 	return headline_list
-
-
-def read_scrapper(keyword, start_date, end_date):
-	cache_dir = 'cache/'
-	file_name = '_'.join(keyword.split()) + '_' + str(end_date.year) + '_' + str(end_date.month) + '.pkd'
-	if os.path.exists(cache_dir + file_name):
-		news_list = dill.load(open(cache_dir + file_name, 'rb'))
-		return news_list
-	else:
-		return None
